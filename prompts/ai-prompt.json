@@ -1,0 +1,166 @@
+{
+  "prompts": [
+    {
+      "id": 1,
+      "date": "2026-09-22",
+      "prompt": "Je dois commencer un nouveau projet en React Native basé sur un Pokedex Pokémon de 10 Pokémon. Est-ce que npx create-expo-app@latest pokedex me permettra d'avoir une base de projet ? Dis-moi comment commencer.",
+      "resultat": "Initialisation d'un projet Expo TypeScript avec Expo Router dans le dossier Pokedex."
+    },
+    {
+      "id": 2,
+      "date": "2026-09-22",
+      "prompt": "On doit aussi mettre en place un système de suivi des prompts pour nos échanges. Crée un dossier de suivi avec un fichier JSON nommé ai-prompt.json.",
+      "resultat": "Définition d'un dossier prompts à la racine du projet et d'une structure JSON pour conserver les échanges."
+    },
+    {
+      "id": 3,
+      "date": "2026-09-22",
+      "prompt": "À la fin de chacun de nos échanges, une note doit être ajoutée dans ce fichier. Lance la création, ensuite nous passerons au plan de travail avec toutes les étapes à réaliser une par une.",
+      "resultat": "Validation du suivi des échanges et ajout de la règle consistant à enregistrer une nouvelle note à chaque échange."
+    },
+    {
+      "id": 4,
+      "date": "2026-09-22",
+      "prompt": "Crée le nouveau dossier de suivi des prompts.",
+      "resultat": "Création du dossier prompts et du fichier ai-prompt.json."
+    },
+    {
+      "id": 5,
+      "date": "2026-09-22",
+      "prompt": "Nous allons maintenant établir le plan de réalisation du projet pokedex. Voici les éléments demandés que j'ai déjà travaillé en liste séquencé. Dis-moi si ma proposition est bonne ou mérite quelques ajustements, puis garde ce plan en mémoire pour que l'on avance dessus point par point.",
+      "resultat": "Plan de réalisation validé avec ajustements : types et service API avant les hooks, listing après loading et erreur, et utilisation d'Expo Router plutôt qu'un Stack Navigator manuel."
+    },
+    {
+      "id": 6,
+      "date": "2026-09-22",
+      "prompt": "Agis comme un professeur et un tuteur. Guide-moi pas à pas pour la phase 1, explique-moi ce que nous faisons et comment le refaire, sans me donner les réponses sauf si je demande explicitement de l'aide parce que je suis bloqué. Est-ce que tu comprends ? As-tu des questions ?",
+      "resultat": "La méthode pédagogique est définie : progression par questions et petites étapes, compréhension avant exécution, sans solution directe sauf demande explicite de blocage."
+    },
+    {
+      "id": 7,
+      "date": "2026-09-22",
+      "prompt": "Le nom de l'application est Pokedex, le slug est-il l'identifiant technique ? Je comprends l'icône, mais je ne connais pas la configuration du splashscreen ni l'usage des configurations Android et iOS. Explique-moi les points mal compris ou non compris.",
+      "resultat": "Clarification pédagogique prévue sur name, slug, icône, splashscreen et icônes spécifiques à Android et iOS avant toute modification de configuration."
+    },
+    {
+      "id": 8,
+      "date": "2026-09-22",
+      "prompt": "Pourquoi l'icône et le splashscreen utilisent-ils deux fichiers différents ? Quel est le rôle de foregroundImage par rapport à backgroundImage dans une icône adaptative Android ?",
+      "resultat": "Réponse de l'élève : l'icône est une miniature et le splashscreen peut afficher une illustration plus grande ; il pense que les images Android servent de solution de remplacement si l'icône n'est pas supportée. Correction pédagogique : foregroundImage et backgroundImage sont deux calques composant l'icône adaptative."
+    },
+    {
+      "id": 9,
+      "date": "2026-09-22",
+      "prompt": "J'ai ajouté pokeball.svg et pokeball.png dans assets/images/icons. L'image représente une Pokéball noire. Peut-on modifier sa couleur ? Je veux ajouter un fond blanc #FFFFFF et rouge #DC0A2D. Je peux aussi communiquer ma liste de couleurs, typographies et composants pour le design system.",
+      "resultat": "Analyse des assets : le SVG utilise un fill #1D1D1D modifiable directement, tandis que l'icône Expo actuelle attend un PNG. Le SVG pourra servir de source puis être exporté en PNG. Le fond blanc et rouge devra être composé graphiquement ou via les calques adaptatifs Android selon le rendu choisi."
+    },
+    {
+      "id": 10,
+      "date": "2026-09-22",
+      "prompt": "J'ai ajouté les images et les 24 couleurs du design system, choisi Poppins avec les poids 400 et 700, défini une taille de 24 et des marges latérales de 20, ainsi qu'une règle de layout 312 x 48. Les dossiers details, icons et pokemon contiennent les éléments visuels de base. Est-ce que j'ai répondu à toutes les questions ?",
+      "resultat": "Les informations sont suffisantes pour cadrer le design system. Points à préciser avant implémentation : installer Poppins, adapter les tailles aux unités React Native, déterminer à quel composant s'applique la règle 312 x 48, et décider quels assets restent locaux ou viennent de la PokeAPI."
+    },
+    {
+      "id": 11,
+      "date": "2026-09-22",
+      "prompt": "Poursuivons en définissant les couleurs, la typographie et les autres règles dans src/constants/theme.ts. Est-ce le bon fichier pour centraliser toutes ces données ? Explique-moi comment faire.",
+      "resultat": "Confirmation que theme.ts est le bon point central. La méthode proposée consiste à conserver les catégories existantes, puis à organiser les tokens de couleurs, les couleurs sémantiques, la typographie, les espacements et les dimensions de layout avant de les utiliser dans les composants."
+    },
+    {
+      "id": 12,
+      "date": "2026-09-22",
+      "prompt": "Pour moi il faut créer une constante pour chaque catégorie, avec une constante pokemon et une constante general, puis faire de même pour les couleurs sémantiques et les autres éléments. J'ai commencé à ajouter des commentaires dans theme.ts. Est-ce correct et puis-je commencer à coder ?",
+      "resultat": "Validation du raisonnement. Les couleurs de types, générales et sémantiques doivent être des constantes séparées de la palette light/dark. Correction de structure : les commentaires ne doivent pas être utilisés pour placer ces catégories à l'intérieur de l'objet Colors."
+    },
+    {
+      "id": 13,
+      "date": "2026-09-22",
+      "prompt": "J'ai ajouté GeneralColors avec les valeurs fournies. Contrôle le code et dis-moi si j'ai commis des erreurs. Si tout est correct, liste-moi le nom des couleurs à ajouter pour que je recherche les valeurs.",
+      "resultat": "GeneralColors est correctement placé hors de Colors, contient les six couleurs attendues et utilise as const. La prochaine étape est d'ajouter les couleurs des 18 types Pokémon dans PokemonColors."
+    },
+    {
+      "id": 14,
+      "date": "2026-09-22",
+      "prompt": "J'ai ajouté PokemonColors. Corrige les codes hexadécimaux en minuscules pour que toute la convention soit en majuscules. Contrôle mon code et donne-moi les éléments à ajouter dans SemanticColors.",
+      "resultat": "PokemonColors contient les 18 types attendus et ses valeurs sont correctes. Les six valeurs minuscules de GeneralColors ont été normalisées en majuscules. La validation TypeScript retrouve uniquement les deux erreurs préexistantes du template web, sans erreur liée au thème."
+    },
+    {
+      "id": 15,
+      "date": "2026-09-22",
+      "prompt": "J'ai ajouté SemanticColors. Dis-moi si mes choix de couleurs sont bons, si mon code est correct et quelle est l'étape suivante.",
+      "resultat": "Le code est syntaxiquement correct et les constantes sont bien composées. Ajustements recommandés : renommer primarySemantic en primary, conserver une attention particulière au contraste de warning basé sur le jaune électrique, et prévoir le chargement de Poppins comme prochaine étape du design system."
+    },
+    {
+      "id": 16,
+      "date": "2026-09-22",
+      "prompt": "J'ai corrigé SemanticColors et commencé à ajouter Poppins dans _layout.tsx, mais une ligne est en erreur. Aide-moi à comprendre pourquoi et explique-moi comment installer Poppins, créer les constantes de familles, tailles et poids, puis charger la police dans _layout.tsx, en précisant dans quels fichiers réaliser chaque étape.",
+      "resultat": "Diagnostic : le package @expo-google-fonts/poppins n'est pas encore installé et _layout.tsx contient deux déclarations export default imbriquées. La procédure pédagogique consiste à installer la dépendance, conserver un seul RootLayout, organiser les tokens typographiques dans theme.ts et charger la police dans src/app/_layout.tsx."
+    },
+    {
+      "id": 17,
+      "date": "2026-09-22",
+      "prompt": "J'ai installé Poppins et modifié src/app/_layout.tsx et src/constants/theme.ts. Contrôle mes corrections et dis-moi si mon travail est correct.",
+      "resultat": "Le layout contient un seul export default, charge correctement Poppins 400 et 700 et attend fontsLoaded. Point à corriger dans theme.ts : FontFamilies référence Poppins_500Medium et Poppins_600SemiBold, mais ces polices ne sont ni importées ni chargées. Les constantes FontSizes et Typography sont cohérentes ; Typography devrait utiliser as const et une constante FontWeights séparée pourra clarifier les poids."
+    },
+    {
+      "id": 18,
+      "date": "2026-09-22",
+      "prompt": "J'ai corrigé les imports des autres variantes Poppins et ajouté as const à Typography. Quelle est l'étape suivante ?",
+      "resultat": "Les quatre variantes Poppins sont maintenant importées et chargées dans RootLayout, et Typography utilise as const. Le lint ciblé du layout et du thème passe. La prochaine étape du design system est de définir et contrôler les espacements."
+    },
+    {
+      "id": 19,
+      "date": "2026-09-22",
+      "prompt": "J'ai ajouté les constantes d'espacement avec des valeurs que j'ai déterminées seul. Dis-moi si mes choix sont logiques, quelles corrections apporter et quelle est l'étape suivante.",
+      "resultat": "Les valeurs sont cohérentes pour une interface mobile : marge horizontale 20, écart de contenu 16, écart de section 24, écart de cartes 12 et hauteurs de 48. Amélioration proposée : séparer à terme les espacements génériques des dimensions de composants."
+    },
+    {
+      "id": 20,
+      "date": "2026-09-22",
+      "prompt": "J'ai ajouté trois constantes pour les rayons, sans créer de constante pour les badges. Contrôle mon code et dis-moi si nous pouvons commencer les pages ou s'il reste des éléments à mettre en place.",
+      "resultat": "Les constantes Cards, Buttons et Inputs sont valides et leurs valeurs sont cohérentes. Elles regroupent cependant les rayons et les ombres, donc leur nom décrit des styles de composants plutôt que de simples rayons. Le projet peut commencer une première page, mais les dimensions communes et le remplacement du starter Expo restent à cadrer."
+    },
+    {
+      "id": 21,
+      "date": "2026-09-22",
+      "prompt": "Je préfère commencer par connecter l'application à la PokeAPI, créer les composants qui afficheront les Pokémon, puis créer les cartes de détail avec l'image et les statistiques. Je ne comprends pas quand remplacer l'écran Expo par la structure du Pokédex. Que penses-tu de cet ordre ? Commençons.",
+      "resultat": "Ordre validé avec une précision pédagogique : préparer d'abord les types et le service API, puis le hook de données, ensuite les composants et enfin remplacer le JSX starter de src/app/index.tsx, qui est la route d'accueil du Pokédex. Les dimensions communes seront ajoutées au besoin."
+    },
+    {
+      "id": 22,
+      "date": "2026-09-22",
+      "prompt": "J'ai testé l'URL de liste de la PokeAPI. La réponse contient count, next, previous et results avec name et url, mais pas d'image. Je pense qu'il faut trouver un autre endpoint dans la documentation pour obtenir les détails.",
+      "resultat": "Analyse validée : l'endpoint de liste fournit des résumés et chaque URL de résultat pointe vers un endpoint détaillé. Prochaine étape pédagogique : examiner un endpoint comme https://pokeapi.co/api/v2/pokemon/1/ pour repérer les champs sprites et stats avant de définir les types TypeScript."
+    },
+    {
+      "id": 23,
+      "date": "2026-09-23",
+      "prompt": "Lis le fichier prompts\\ai-prompt.json, prends en mémoire les échanges déjà réalisés et reprends la liste technique des points à réaliser pour le Pokédex. Je veux utiliser la PokéAPI et identifier les endpoints nécessaires pour commencer la connexion. Est-ce que tu comprends où j'en suis et as-tu des questions ?",
+      "resultat": "État confirmé : le projet Expo TypeScript avec Expo Router est initialisé, le design system est partiellement structuré dans src/constants/theme.ts, Poppins est chargé dans src/app/_layout.tsx, et l'écran d'accueil affiche encore le starter Expo. Aucun service, type ou hook PokeAPI n'est encore implémenté. Les premiers endpoints retenus sont la liste paginée /api/v2/pokemon/?limit=10&offset=0 et le détail /api/v2/pokemon/{id-ou-nom}/, qui fournit notamment sprites, types, stats et cries."
+    },
+    {
+      "id": 24,
+      "date": "2026-09-23",
+      "prompt": "Limiter l'affichage à 10 Pokémon par page, récupérer le catalogue complet, ajouter la pagination, la recherche et le filtre par type, utiliser les images de la PokéAPI plutôt que les assets locaux, et accélérer l'implémentation.",
+      "resultat": "Contraintes confirmées : le catalogue devra être complet, l'affichage limité à 10 résultats par page, avec recherche et filtre par type. Les images seront chargées depuis la PokéAPI. Une décision reste à prendre avant l'implémentation : télécharger immédiatement les détails complets de tous les Pokémon, ou charger les détails à la demande pour préserver les performances et respecter la politique d'utilisation de la PokéAPI."
+    },
+    {
+      "id": 25,
+      "date": "2026-09-23",
+      "prompt": "Pour les 10 Pokémon affichés, créer des miniatures avec l'image, le nom sous l'image et le numéro en haut à droite. Commencer l'implémentation et expliquer brièvement les changements.",
+      "resultat": "Implémentation du socle Pokédex : types PokemonSummary et PokemonDetails, service PokeAPI avec cache des détails, hook usePokemonList avec états de chargement et erreur, composant PokemonCard et remplacement du starter Expo par une grille de 10 miniatures paginées. Le typecheck passe. Le lint reste bloqué par une erreur préexistante dans src/hooks/use-color-scheme.web.ts."
+    },
+    {
+      "id": 26,
+      "date": "2026-09-23",
+      "prompt": "Valider les choix de la maquette : sélection multiple des types, recherche locale avec debounce, lots de 12 Pokémon, réinitialisation complète des filtres, puis lancer les corrections.",
+      "resultat": "La maquette est intégrée : header rouge avec logo, recherche locale debouncée, modal bottom sheet de tri et filtre multi-types, réinitialisation vers le tri par numéro croissant, grille de trois colonnes, chargement infini par lots de 12 et loader en bas de liste. Le typecheck passe. Le lint ne signale plus que l'erreur préexistante de src/hooks/use-color-scheme.web.ts."
+    },
+    {
+      "id": 27,
+      "date": "2026-09-23",
+      "prompt": "Supprimer la barre horizontale Web contenant Expo Starter, Home, Explore et Docs, puis corriger le fichier app-tabs.web.tsx.",
+      "resultat": "Le système d'onglets Web a été remplacé par Slot dans src/components/app-tabs.web.tsx. Les composants CustomTabList et TabButton, leurs imports et leurs styles ont été supprimés. Le typecheck et les diagnostics du fichier passent sans erreur."
+    }
+  ]
+}
