@@ -161,6 +161,24 @@
       "date": "2026-09-23",
       "prompt": "Supprimer la barre horizontale Web contenant Expo Starter, Home, Explore et Docs, puis corriger le fichier app-tabs.web.tsx.",
       "resultat": "Le système d'onglets Web a été remplacé par Slot dans src/components/app-tabs.web.tsx. Les composants CustomTabList et TabButton, leurs imports et leurs styles ont été supprimés. Le typecheck et les diagnostics du fichier passent sans erreur."
+    },
+    {
+      "id": 28,
+      "date": "2026-09-23",
+      "prompt": "Passer à la page de détail d'un Pokémon avec route séparée et ID en paramètre : header coloré selon le premier type, image, badges de types, informations, description, statistiques, navigation par numéro indépendant des filtres et sans affichage des capacités pour le moment.",
+      "resultat": "Spécifications comprises. La page pourra utiliser la route src/app/pokemon/[id].tsx, l'endpoint pokemon/{id} pour les données principales et pokemon-species/{id} pour le flavor text. La navigation précédente/suivante sera basée uniquement sur l'ID. Deux précisions restent à confirmer : supprimer entièrement la colonne Moves ou afficher une autre information, et choisir la langue du flavor text."
+    },
+    {
+      "id": 29,
+      "date": "2026-09-23",
+      "prompt": "Conserver la colonne Moves pour une fonctionnalité future et afficher provisoirement la description en anglais avant l'implémentation de l'i18n avec i18next, un JSON par langue et expo-localization.",
+      "resultat": "Page détail implémentée sur src/app/pokemon/[id].tsx. Les cartes naviguent vers la route dynamique, l'écran charge les données Pokémon et species, affiche le thème du premier type, l'image, les badges, les informations, la description anglaise, les six statistiques et la navigation indépendante par numéro. La colonne Moves est conservée avec une valeur provisoire. Le typecheck passe ; le lint ne signale plus que l'erreur préexistante de src/hooks/use-color-scheme.web.ts."
+    },
+    {
+      "id": 30,
+      "date": "2026-09-23",
+      "prompt": "Corriger la page détail afin que l'image du Pokémon passe devant la carte blanche, puis indiquer où modifier sa taille et où agrandir ou déplacer la Pokéball en arrière-plan.",
+      "resultat": "Correction des calques dans src/app/pokemon/[id].tsx : le bandeau et l'image utilisent maintenant un zIndex/elevation supérieur à la carte blanche. Les dimensions et positions restent contrôlables dans styles.pokemonImage et styles.watermark. Le typecheck passe."
     }
   ]
 }

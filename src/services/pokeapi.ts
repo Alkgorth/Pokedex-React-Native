@@ -1,6 +1,7 @@
 import type {
     PokemonDetails,
     PokemonListResponse,
+    PokemonSpecies,
     PokemonSummary,
 } from "@/types/pokemon";
 
@@ -38,6 +39,16 @@ export async function fetchPokemonDetails(
   const details = await fetchJson<PokemonDetails>(pokemon.url);
   detailsCache.set(pokemon.name, details);
   return details;
+}
+
+export async function fetchPokemonById(id: number): Promise<PokemonDetails> {
+  const pokemon = await fetchJson<PokemonDetails>(`${API_URL}/pokemon/${id}`);
+  detailsCache.set(pokemon.name, pokemon);
+  return pokemon;
+}
+
+export function fetchPokemonSpecies(id: number): Promise<PokemonSpecies> {
+  return fetchJson<PokemonSpecies>(`${API_URL}/pokemon-species/${id}`);
 }
 
 export async function fetchPokemonTypeMembers(type: string): Promise<string[]> {

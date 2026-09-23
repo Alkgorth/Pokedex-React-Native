@@ -1,3 +1,4 @@
+import { Link } from "expo-router";
 import { Image, StyleSheet, Text, View } from "react-native";
 
 import { getPokemonImage } from "@/services/pokeapi";
@@ -11,18 +12,25 @@ export function PokemonCard({ pokemon }: PokemonCardProps) {
   const imageUri = getPokemonImage(pokemon);
 
   return (
-    <View style={styles.card}>
-      <Text style={styles.number}>#{String(pokemon.id).padStart(3, "0")}</Text>
-      <View style={styles.imageArea}>
-        <View style={styles.platform} />
-        {imageUri ? (
-          <Image source={{ uri: imageUri }} style={styles.image} />
-        ) : null}
+    <Link
+      asChild
+      href={{ pathname: "/pokemon/[id]", params: { id: String(pokemon.id) } }}
+    >
+      <View style={styles.card}>
+        <Text style={styles.number}>
+          #{String(pokemon.id).padStart(3, "0")}
+        </Text>
+        <View style={styles.imageArea}>
+          <View style={styles.platform} />
+          {imageUri ? (
+            <Image source={{ uri: imageUri }} style={styles.image} />
+          ) : null}
+        </View>
+        <Text numberOfLines={1} style={styles.name}>
+          {pokemon.name}
+        </Text>
       </View>
-      <Text numberOfLines={1} style={styles.name}>
-        {pokemon.name}
-      </Text>
-    </View>
+    </Link>
   );
 }
 

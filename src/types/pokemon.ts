@@ -13,6 +13,8 @@ export type PokemonListResponse = {
 export type PokemonDetails = {
   id: number;
   name: string;
+  height: number;
+  weight: number;
   sprites: {
     front_default: string | null;
     other?: {
@@ -23,6 +25,17 @@ export type PokemonDetails = {
   };
   types: {
     type: PokemonSummary;
+  }[];
+  stats: {
+    base_stat: number;
+    stat: PokemonSummary;
+  }[];
+};
+
+export type PokemonSpecies = {
+  flavor_text_entries: {
+    flavor_text: string;
+    language: PokemonSummary;
   }[];
 };
 
