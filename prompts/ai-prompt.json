@@ -179,6 +179,12 @@
       "date": "2026-09-23",
       "prompt": "Corriger la page détail afin que l'image du Pokémon passe devant la carte blanche, puis indiquer où modifier sa taille et où agrandir ou déplacer la Pokéball en arrière-plan.",
       "resultat": "Correction des calques dans src/app/pokemon/[id].tsx : le bandeau et l'image utilisent maintenant un zIndex/elevation supérieur à la carte blanche. Les dimensions et positions restent contrôlables dans styles.pokemonImage et styles.watermark. Le typecheck passe."
+    },
+    {
+      "id": 31,
+      "date": "2026-09-23",
+      "prompt": "Réduire la largeur du bloc d'informations de la page détail, le centrer horizontalement et lui appliquer une marge latérale afin qu'il n'occupe plus toute la largeur de l'écran.",
+      "resultat": "Le style contentCard de src/app/pokemon/[id].tsx utilise désormais width: 92% et alignSelf: center. Le bloc conserve son padding interne et présente environ 4% d'espace sur chaque côté. Le typecheck passe."
     }
   ]
 }
