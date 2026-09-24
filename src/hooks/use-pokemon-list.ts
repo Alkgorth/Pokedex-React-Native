@@ -1,16 +1,16 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import {
-    fetchPokemonCatalog,
-    fetchPokemonDetails,
-    fetchPokemonTypeMembers,
-    getPokemonId,
+  fetchPokemonCatalog,
+  fetchPokemonDetails,
+  fetchPokemonTypeMembers,
+  getPokemonId,
 } from "@/services/pokeapi";
 import type {
-    PokemonDetails,
-    PokemonSort,
-    PokemonSummary,
-    PokemonTypeName,
+  PokemonDetails,
+  PokemonSort,
+  PokemonSummary,
+  PokemonTypeName,
 } from "@/types/pokemon";
 
 export const POKEMON_BATCH_SIZE = 12;
@@ -51,6 +51,7 @@ export function usePokemonList({
   sortBy,
   filterTypes,
 }: UsePokemonListOptions): UsePokemonListResult {
+  const myRef = useRef(false);
   const [catalog, setCatalog] = useState<PokemonSummary[]>([]);
   const [allowedNames, setAllowedNames] = useState<Set<string> | null>(null);
   const [pokemon, setPokemon] = useState<PokemonDetails[]>([]);
@@ -187,7 +188,7 @@ export function usePokemonList({
   ]);
 
   function loadMore() {
-    if (loadingMore || !hasMore || catalogLoading) {
+    if (loadingMore || myRef.current || !hasMore || catalogLoading) {
       return;
     }
 
@@ -200,6 +201,8 @@ export function usePokemonList({
       setHasMore(false);
       return;
     }
+
+    myRef.current = true;
 
     setLoadingMore(true);
     void Promise.all(nextBatch.map(fetchPokemonDetails))
@@ -214,7 +217,10 @@ export function usePokemonList({
             : "Une erreur est survenue.",
         );
       })
-      .finally(() => setLoadingMore(false));
+      .finally(() => {
+        setLoadingMore(false);
+        myRef.current = false;
+      });
   }
 
   return {
