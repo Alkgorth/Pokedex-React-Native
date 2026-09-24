@@ -14,7 +14,10 @@ export function PokemonCard({ pokemon }: PokemonCardProps) {
   return (
     <Link
       asChild
-      href={{ pathname: "/pokemon/[id]", params: { id: String(pokemon.id) } }}
+      href={{
+        pathname: "/pokemon/detailPokemon",
+        params: { id: String(pokemon.id) },
+      }}
     >
       <View style={styles.card}>
         <Text style={styles.number}>

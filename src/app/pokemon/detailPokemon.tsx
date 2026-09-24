@@ -1,27 +1,27 @@
 import { router, useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 import {
-    ActivityIndicator,
-    Image,
-    Pressable,
-    ScrollView,
-    StyleSheet,
-    Text,
-    View,
-    useWindowDimensions,
+  ActivityIndicator,
+  Image,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+  useWindowDimensions,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { GeneralColors, PokemonColors, Spacing } from "@/constants/theme";
 import {
-    fetchPokemonById,
-    fetchPokemonSpecies,
-    getPokemonImage,
+  fetchPokemonById,
+  fetchPokemonSpecies,
+  getPokemonImage,
 } from "@/services/pokeapi";
 import type {
-    PokemonDetails,
-    PokemonSpecies,
-    PokemonTypeName,
+  PokemonDetails,
+  PokemonSpecies,
+  PokemonTypeName,
 } from "@/types/pokemon";
 
 const MAX_POKEMON_ID = 1025;
@@ -100,7 +100,7 @@ export default function PokemonDetailScreen() {
 
   function navigateToPokemon(nextId: number) {
     router.replace({
-      pathname: "/pokemon/[id]",
+      pathname: "/pokemon/detailPokemon",
       params: { id: String(nextId) },
     });
     setPokemon(null);
